@@ -7,8 +7,8 @@ from osb_file_parser import osz_contains_storyboard
 
 def copy_to_output_folder(files):
     for f in progressbar.progressbar(files):
-        os.makedirs(f"output/{os.path.dirname(f)}", exist_ok=True)
-        copyfile(f, f"output/{f}")
+        os.makedirs("output\{0}".format(os.path.dirname(f)), exist_ok=True)
+        copyfile(f, "output\{0}".format(f))
 
 
 if __name__ == '__main__':
@@ -20,6 +20,6 @@ if __name__ == '__main__':
             if osz_contains_storyboard(file_path):
                 files.append(file_path)
         except Exception as error:
-            error_log.write(f"ERROR: \n{file_path}\n{error}\n\n")
+            error_log.write(f"ERROR: \n{0}\n{1}\n\n".format(file_path, error))
 
     copy_to_output_folder(files)
