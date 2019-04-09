@@ -71,3 +71,20 @@ def osz_contains_storyboard(file_path):
         files = [beatmap.open(f, 'r') for f in beatmap.namelist() if f.endswith('osu')
                  or f.endswith('osb')]
         return any([contains_storyboard_helper(f) for f in files])
+    
+def read_files_for_sprites(file):
+    for line in file:
+        line = clean_line(line)
+        if '[Events]' in line:
+            #Hopefully we are up to the Events tab, in too many for loops
+            next_line = clean_line(file.readline())
+            sprite_count = 0
+            
+
+def sprite_count(file_path)
+    with open(file_path, 'r+') as file:
+        with ZipFile(file) as beatmap:
+            files = [beatmap.open(f, 'r') for f in beatmap.namelist() if f.endswith('osu') or f.endswith('osb')]
+                read_files_for_sprites(f) for f in files
+                
+        
